@@ -4,47 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Headline Analyzer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --sand:         #F4F0E8;
-  --terra:        #C4622A;
-  --golden:       #E8C87A;
-  --near-black:   #1A1A1A;
-  --brown:        #6A5A4A;
+  --sand:         #F7F4EC;
+  --terra:        #D69C8C;
+  --golden:       #F0C9BA;
+  --near-black:   #131210;
+  --brown:        #6B6558;
   --white:        #FFFFFF;
-  --border:       2.5px solid #1A1A1A;
-  --shadow-black: 4px 4px 0 #1A1A1A;
-  --shadow-terra: 4px 4px 0 #C4622A;
+  --border:       2px solid #131210;
+  --shadow-black: 4px 4px 0 #131210;
+  --shadow-terra: 4px 4px 0 #D69C8C;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: var(--sand);
   color: var(--near-black);
   min-height: 100vh;
   overflow-x: hidden;
-}
-
-/* ── Deco shapes ────────────────────────────────────────── */
-.deco-circle {
-  position: fixed; top: -60px; right: -60px;
-  width: 220px; height: 220px; border-radius: 50%;
-  border: 2.5px solid var(--near-black);
-  background: var(--golden); opacity: 0.35;
-  pointer-events: none; z-index: 0;
-}
-.deco-rect {
-  position: fixed; bottom: 40px; left: -30px;
-  width: 120px; height: 120px;
-  border: 2.5px solid var(--near-black);
-  background: var(--terra); opacity: 0.18;
-  transform: rotate(18deg);
-  pointer-events: none; z-index: 0;
 }
 
 /* ── Layout ─────────────────────────────────────────────── */
@@ -109,7 +89,7 @@ h1 {
 .mode-picker { display: flex; gap: 4px; }
 
 .mode-btn {
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -127,7 +107,7 @@ h1 {
 .mode-btn.active { background: var(--golden); }
 
 .clear-btn {
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -135,7 +115,7 @@ h1 {
   border: var(--border);
   border-radius: 99px;
   background: var(--terra);
-  color: var(--white);
+  color: var(--near-black);
   cursor: pointer;
   transition: box-shadow 0.12s, transform 0.1s;
   white-space: nowrap;
@@ -153,7 +133,7 @@ h1 {
   display: block;
   width: 100%;
   padding: 0.85rem 1rem;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: var(--near-black);
@@ -184,7 +164,7 @@ h1 {
 
 .add-btn {
   margin-top: 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -246,8 +226,8 @@ h1 {
 }
 
 .hl-power    { background: var(--golden); padding: 0 3px; border-radius: 4px; }
-.hl-positive { background: rgba(196,98,42,0.18); padding: 0 3px; border-radius: 4px; }
-.hl-negative { background: rgba(196,98,42,0.18); padding: 0 3px; border-radius: 4px; text-decoration: underline wavy var(--terra); text-decoration-thickness: 1.5px; }
+.hl-positive { background: rgba(214,156,140,0.3); padding: 0 3px; border-radius: 4px; }
+.hl-negative { background: rgba(214,156,140,0.3); padding: 0 3px; border-radius: 4px; text-decoration: underline wavy var(--terra); text-decoration-thickness: 1.5px; }
 
 .score-head {
   display: flex;
@@ -276,7 +256,7 @@ h1 {
   color: var(--white);
 }
 .pill-excellent { background: #4C7A4C; }
-.pill-good      { background: var(--terra); }
+.pill-good      { background: var(--terra); color: var(--near-black); }
 .pill-fair      { background: var(--golden); color: var(--near-black); }
 .pill-weak      { background: var(--near-black); }
 
@@ -397,7 +377,7 @@ h1 {
   position: absolute;
   top: -12px; right: 16px;
   background: var(--terra);
-  color: var(--white);
+  color: var(--near-black);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -443,16 +423,11 @@ h1 {
 /* ── Mobile ─────────────────────────────────────────────── */
 @media (max-width: 620px) {
   .wrap { padding: 40px 24px 60px; }
-  .deco-circle { width: 130px; height: 130px; top: -40px; right: -40px; }
-  .deco-rect { display: none; }
   .bar-label { flex-basis: 100px; }
 }
 </style>
 </head>
 <body>
-
-<div class="deco-circle"></div>
-<div class="deco-rect"></div>
 
 <div class="wrap">
 
